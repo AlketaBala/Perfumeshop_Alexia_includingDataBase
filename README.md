@@ -117,7 +117,7 @@ The application uses the `alka` database with the following tables:
 
 For questions or issues with the project, please feel free to reach out to the project administrator:
 
-- **Email**: Alketa@gmail.com
+- **Email**: alketabala11@gmail.com
 
 ---
 
