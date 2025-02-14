@@ -129,7 +129,8 @@ include 'conn.php';
     echo "<br>Total amount...................................".$total." EURO";
     echo "</div><div id='rechts'>";
     echo "<br><a href='index.php?emri=" . urlencode($EMRI) .'&id='.urlencode($IDa). "'><button class='button button1'>Add item to Basket</button></a>";
-    echo "<br><a href='shlyjeshporten.php?delete=1&ida=" .urlencode($IDa) . "'><button class='button button1'>Delete items from Basket</button></a></div>";
+    echo "<br><a href='shlyjeshporten.php?delete=1&ida=" .urlencode($IDa) . "'><button class='button button1'>Delete items from Basket</button></a>";
+    echo "<br><a href='bejporosi.php?ida=" . urlencode($userId) . "'><button class='button button1'>Bëj Porosi</button></a></div>";
 
     
 ?>
