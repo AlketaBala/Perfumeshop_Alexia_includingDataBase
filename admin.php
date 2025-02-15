@@ -81,7 +81,7 @@ if ($result->num_rows > 0) {
        /*if($key == 'Kodi') continue;*/
          echo '<form action="edit.php" method="GET">
          <input  name="emri" value='.htmlspecialchars($value).'>
-         <input type="hidden" name="id" value="' . $row['ID'] . '">
+         <input type="hidden" name="id" value="' . $row['ID_A'] . '">
          <input  name="vlera"  type="submit" value="'. $key.'">
          </form>';
           }
