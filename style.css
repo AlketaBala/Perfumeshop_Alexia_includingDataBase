@@ -1,4 +1,3 @@
-/* Base Styles (Mobile First) */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -9,18 +8,84 @@ body {
     background: #741414;
     text-align: center;
     padding: 1rem 0;
+    padding: 1rem 2rem;
+    margin-bottom: 0; /* Ensure no unwanted gap */
   }
+
+/* A flex container for the logo on the left and nav on the right */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Logo left, nav right */
+}
+
+/* Logo styling */
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+/* Navigation container uses Flexbox */
+.main-nav {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center; /* Center the links horizontally */
+}
+
+/* Navigation links (Home, About Us, Contact) */
+.main-nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Container for icon & username stacked vertically */
+.user-info {
+  display: flex;
+  flex-direction: column; /* Icon above username */
+  align-items: center;
+  margin-left: 40px; /* Space away from the main links */
+}
+
+.user-info img {
+  margin-bottom: 5px;
+}
+
+.user-info span {
+  color: white;
+  font-weight: bold;
+}
+
+/* Logout link to the right of the user-info container */
+.logout {
+  margin-left: 20px; 
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Headline and subheading in the header, centered and white text */
+header h1,
+header p {
+  text-align: center;
+  color: white;
+  margin: 0.5rem 0;
+}
+
   .logo {
     width: 10px;
     height: 10px;
-    
-    
+
   }
+  
   nav a {
     margin: 0 15px;
     color: white;
     text-decoration: none;
   }
+  
   
   .perfume-collection {
     display: flex;
@@ -43,6 +108,7 @@ body {
     margin: 2px 2px;
     padding: 40px 0;
     padding-left: 10px;
+    height:150px;
   }
   
   #Footer ul li a {
@@ -218,137 +284,5 @@ body {
   
   .dot {
     transition: background-color 0.3s ease;
-  }
-  
-  /* Media Queries */
-  
-  /* Tablet (min-width: 768px) */
-  @media (min-width: 768px) {
-    .perfume-collection {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  
-    .perfume-card {
-      width: 45%; /* Set card width for tablet view */
-    }
-  
-    #Footer {
-      padding: 50px 0;
-    }
-  
-    .contact-form {
-      max-width: 80%; /* Make the contact form wider */
-    }
-  }
-  
-  /* Laptop/Desktop (min-width: 1024px) */
-  @media (min-width: 1024px) {
-    .perfume-collection {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  
-    .perfume-card {
-      width: 30%; /* Adjust card width for laptop/desktop */
-    }
-  
-    #Footer {
-      padding: 60px 0;
-    }
-  
-    .contact-form {
-      max-width: 70%;
-    }
-  }
-  
-  /* Large Desktop (min-width: 1280px) */
-  @media (min-width: 1280px) {
-    .perfume-collection {
-      justify-content: space-around;
-    }
-  
-    .perfume-card {
-      width: 22%; /* Adjust card width for large desktop */
-    }
-  
-    #Footer {
-      padding: 70px 0;
-    }
-  
-    .contact-form {
-      max-width: 50%;
-    }
-  
-    .center .title {
-      font-size: 100px; /* Larger title for large screens */
-    }
-  
-    .center .subtitle {
-      font-size: 40px; /* Larger subtitle for large screens */
-    }
-  }
-  
-  /* Small Mobile (max-width: 480px) */
-  @media (max-width: 480px) {
-    .center .title {
-      font-size: 60px; /* Smaller title on very small screens */
-    }
-  
-    .center .subtitle {
-      font-size: 20px; /* Smaller subtitle on very small screens */
-    }
-  
-    .perfume-card {
-      width: 100%; /* Full width on very small screens */
-    }
-  
-    #Footer ul li {
-      display: block; /* Stack footer links on small screens */
-      text-align: center;
-    }
-  
-    #Footer .social a {
-      font-size: 20px; /* Smaller social icons on small screens */
-      width: 35px;
-      height: 35px;
-    }
-  }
-  .about-box {
-    background: #f7f5f2; /* Soft beige background */
-    border: 2px solid #c8b9a6; /* Elegant border color */
-    border-radius: 15px; /* Rounded corners */
-    padding: 20px 30px;
-    margin: 20px auto;
-    max-width: 800px; /* Center and limit the width */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    font-family: 'Georgia', serif; /* Serif font for an elegant look */
-    color: #333; /* Dark text for contrast */
-  }
-  
-  .about-box h2 {
-    font-size: 24px;
-    color: #741414; /* Accent color */
-    margin-bottom: 15px;
-  }
-  
-  .about-box h3 {
-    font-size: 20px;
-    margin-top: 20px;
-    color: #5c4c3c; /* Secondary accent color */
-  }
-  
-  .about-box ul {
-    padding-left: 20px;
-    margin: 10px 0;
-  }
-  
-  .about-box ul li {
-    margin-bottom: 10px;
-  }
-  
-  .about-box p {
-    line-height: 1.8;
-    margin-bottom: 15px;
   }
   
