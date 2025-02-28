@@ -39,8 +39,6 @@ height: 100%;
 background-color: #FAFAFA;
   }
 
-
-
 input[type="text"] {
     width: 100px;
     height: 20px;
@@ -56,6 +54,18 @@ input[type="submit"] {
     border: 0;
     -webkit-appearance: none;
 }
+.user-menu {
+    position: relative;
+    display: inline-block;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
 </style>
   <div id="links">
   <br><br>
@@ -67,10 +77,9 @@ input[type="submit"] {
 <br>
 <?php
 
-include 'conn.php';
-
-$sql = "SELECT * FROM antaret";
-$result = $conn->query($sql);
+include_once 'funksionet.php'; 
+$conn=lidhu_me_DB();
+$result=lexo_ne_DB ($conn,"antaret");
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
@@ -86,17 +95,13 @@ if ($result->num_rows > 0) {
          </form>';
           }
           echo "<br>";
-      
     }
   }
-     
  else {
     echo "Keine Daten gefunden";
 }
-
 ?>
 </div>
-
 
 <div id="inhalt">
 <center>
@@ -109,37 +114,58 @@ if ($result->num_rows > 0) {
      Adresa.....: <input type="text" name="Adresa"><br><br>
      Email......: <input type="text" name="Emajli"><br><br>
      Password...: <input type="text" name="Pasi"><br><br>
-      <input type="submit" value="Shto një antar" style="color:#FAFAFA; background-color: #088A85; margin-left: 10px; width: 110px;">
+      <input type="submit" name="shtoantar" value="Shto_një_Antar" style="color:#FAFAFA; background-color: #088A85; margin-left: 10px; width: 110px;">
   </form>
   <br><br><br>
   <h2>Fshini një antar duke shënuar vetëm id e antarit</h2>
-  <form class="login-form" method="GET" action="fshi_antaret.php">
+  <form class="login-form" method="GET" action="shto_antaret.php">
      ID: <input type="number" name="ID"><br><br>
-    <input type="submit" value="Fshi një antar" style="color:#FAFAFA; background-color: #088A85; margin-left: 10px; width: 110px;">
+    <input type="submit" name="shtoantar" value="Fshi_një_Antar" style="color:#FAFAFA; background-color: #088A85; margin-left: 10px; width: 110px;">
   </form><br><br>
   <hr><br><br>
 
 <h2>Shto një produkt duke i shënuar të dhënat e produktit</h2>
-<form class="login-form" method="GET" action="shto_produktet.php">
+<form class="login-form" method="GET" action="shto_antaret.php">
      Emri...........: <input type="text" name="Emri" ><br><br> 
      Përshkrimi...: <input type="text" name="Pershkrimi"><br><br>
      Qmimi........: <input type="text" name="Qmimi"><br><br>
      Sasia..........: <input type="text" name="Sasia"><br><br>
-    <input type="submit" value="Shto nje produkt" style="color:#FAFAFA; background-color: #088A85; margin-left: 10px; width: 110px;">
+    <input type="submit" name="shtoantar" value="Shto_një_produkt" style="color:#FAFAFA; background-color: #088A85; margin-left: 10px; width: 110px;">
   </form>
   <br><br><br>
 <h2>Fshini një produkt duke shënuar vetëm kodin e produktit</h2>
-  <form class="login-form" method="GET" action="fshi_produktet.php">
+  <form class="login-form" method="GET" action="shto_antaret.php">
      Kodi: <input type="number" name="Kodi"><br><br>
-    <input type="submit" value="Fshi nje produkt" style="color:#FAFAFA; background-color: #088A85; margin-left: 10px; width: 110px;">
+    <input type="submit" name="shtoantar" value="Fshi_një_produkt" style="color:#FAFAFA; background-color: #088A85; margin-left: 10px; width: 110px;">
   </form>
   <hr>
 </div>
 
 </center>
 <div id="rechts">
-<br><br>
-  <center>
+    <center>
+        <?php
+        if (isset($_GET['emri'])) {
+            $emri = $_GET['emri'];
+            echo "<div class='user-menu'>
+                    <div class='user-info'>
+                        <img src='ikona_admin.jpg' alt='Ikona' width='20px' height='20px'>
+                        <br>
+                        <span>$emri</span>
+                    </div>
+                    <br>
+                    <a href='login.php'>
+                        <button style='padding: 10px 20px; background-color: red; color: white; border: none; cursor: pointer;'>
+                            Logout
+                        </button>
+                    </a>
+                </div>";
+        } else {
+            echo "<a href='login.php'>Sign in</a>";
+        }
+        ?>
+        <br><br>
+    </center>
 <h2>  Produktet</h2>
 </center>
 <br>
@@ -148,16 +174,14 @@ if ($result->num_rows > 0) {
 <?php
 
 
-$sql = "SELECT * FROM produktet";
-$result = $conn->query($sql);
-
+$result=lexo_ne_DB ($conn,"produktet");
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
       echo "<br>";
 
       foreach ($row as $key =>$value){
      /*if($key == 'Kodi') continue;*/
-         echo '<form action="editp.php"method="GET">
+         echo '<form action="edit.php" method="GET">
          <input  name="emri" value='.htmlspecialchars($value).'>
          <input type="hidden" name="Kodi" value="' . $row['Kodi'] . '">
          <input  name="vlera"  type="submit" value="'. $key.'">
