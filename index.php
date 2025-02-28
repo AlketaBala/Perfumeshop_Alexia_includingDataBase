@@ -8,32 +8,101 @@
   <meta name="description" content="Alexia - Your one-stop shop for luxury perfumes. Explore our collection.">
   <title>Alexia - Perfume Shop</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<style>
+    .user-menu {
+    position: relative;
+    display: inline-block;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 120px;
+    flex-direction: column;
+  }
+
+  .dropdown a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .dropdown a:hover {
+    background: #f0f0f0;
+  }
+
+  .user-menu:hover .dropdown {
+    display: flex;
+  }
+
+</style>
 </head>
 <body>
-  <header>
-     <!-- Logo -->
-  <div class="logo">
-    <img src="Group 1.svg" alt="Alexia Logo" style="width: 150px; height: auto;">
+<header style="padding: 22px 20px;">
+  <!-- Navigation Bar -->
+  <nav style="display: flex; justify-content: space-between; align-items: center;">
+    
+    <!-- Logo (Fully Left) -->
+    <div class="logo">
+      <img src="Untitled.png" alt="Alexia Logo" style="width: 100px; height: auto;">
+    </div>
+
+    <!-- Centered Navigation Links -->
+    <div style="display: flex; gap: 15px;">
+      <a href="index.php">Home</a>
+      <a href="about.php">About Us</a>
+      <a href="contact.php">Contact</a>
+    </div>
+
+    <!-- User Section (Fully Right) -->
+    <div style="position: relative;">
+      <?php
+      if (isset($_GET['emri'])) {
+          $id = $_GET['id'];
+          $emri = $_GET['emri'];
+          echo "<div class='user-menu'>
+                  <div class='user-info'>
+                    <img src='iconaepare.png' alt='Ikona' width='20px' height='20px'>
+                    <span>$emri</span>
+                  </div>
+                  <div class='dropdown'>
+                    <a href='index.php'>Logout</a>
+                    <a href='delete_account.php?id=$id' onclick='return confirm(\"Are you sure you want to delete your account? This action cannot be undone.\");'>Delete Account</a>
+                  </div>
+                </div>";
+      } else {
+          echo "<a href='login.php'>Sign in</a>";
+      }
+      ?>
+    </div>
+  </nav>
+
+  <!-- Welcome Message & Quote -->
+  <div style="text-align: center; margin-top: 15px;">
+    <h1 style="color: rgb(0, 0, 0);">Welcome to Alexia</h1>
+    <p style="color: rgb(0, 0, 0);">Perfume is the art that makes memory speak</p>
   </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-<?php
-if (isset($_GET['emri'])) {
-  $id = $_GET['id'];
-    $emri = $_GET['emri'];
-    echo "<a>Welcome " . $emri."</a>";
-} else {
-    echo "<a href='loginform.php'>Kyçu</a>";
-}
-?>
-    </nav>
-    <h1>Welcome to Alexia</h1>
-    <p>"Perfume is the art that makes memory speak."</p>
-  </header>
+</header>
+
+
+
 
     <div class="img" >
             <img src="BestsellingPerfume.jpg" style="width:100%">
@@ -47,8 +116,8 @@ if (isset($_GET['emri'])) {
     <h2>Explore Our Perfume Brands</h2>
     
 <?php 
-
-include'conn.php';
+include 'funksionet.php'; 
+$conn=lidhu_me_DB();
 
 $sql = "SELECT * FROM produktet";
 $result = $conn->query($sql);
@@ -69,7 +138,7 @@ if ($result->num_rows > 0) {
  if (isset($_GET['id'])) {
   echo '<a href=shporta.php?ida='.$id.'&id='.$row["Kodi"].'>Add to basket</a>';
 } else {
-  echo '<a href="loginform.php">Add to basket</a>';
+  echo '<a href="login.php">Add to basket</a>';
 }
 
 
@@ -163,8 +232,7 @@ loading="lazy">
   
           <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
           <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-          <a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i></a>
-         
+          <a href="https://x.com/?lang=en"><i class="fa-brands fa-x-twitter"></i></a>    
               
     </div>
     <ul class="list">
@@ -172,13 +240,13 @@ loading="lazy">
         <a href="index.php">Home</a>
       </li>
       <li>
-        <a href="about.html">About Us</a>
+        <a href="about.php">About Us</a>
       </li>
       <li>
-        <a href="contact.html">Contact</a>
+        <a href="contact.php">Contact</a>
       </li>
       <li>
-        <a href='loginform.php'>Kyçu</a>
+        <a href='login.php'>Sign in</a>
       </li>
     </ul>
     <p class="copyright">
