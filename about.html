@@ -8,7 +8,7 @@
   <meta name="description" content="Learn more about Alexia Perfume Shop.">
   <title>About Us - Alexia</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
   <!-- Adding jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -22,43 +22,96 @@
       });
     });
   </script>
-  <style>
-  /* Center the button and make it visually appealing */
-    #scrollButton {
-      display: inline-block;
-      padding: 15px 30px;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      background-color: rgb(201, 0, 0);  /* Red background */
-      border: 2px solid rgb(201, 0, 0);  /* Red border */
-      border-radius: 8px;  /* Rounded corners */
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.3s ease;  /* Smooth transition for hover effect */
-    }
-    
-    /* Hover effect to change the button color */
-    #scrollButton:hover {
-      background-color: darkred;
-      border-color: darkred;
-      transform: scale(1.1);  /* Slightly enlarge the button on hover */
-    }
-    </style>
+    <style>
+      /* Center the button and make it visually appealing */
+        #scrollButton {
+          display: inline-block;
+          padding: 15px 30px;
+          font-size: 16px;
+          font-weight: bold;
+          color: white;
+          background-color: rgb(201, 0, 0);  /* Red background */
+          border: 2px solid rgb(201, 0, 0);  /* Red border */
+          border-radius: 8px;  /* Rounded corners */
+          text-align: center;
+          text-decoration: none;
+          cursor: pointer;
+          transition: all 0.3s ease;  /* Smooth transition for hover effect */
+        }
+        
+        /* Hover effect to change the button color */
+        #scrollButton:hover {
+          background-color: darkred;
+          border-color: darkred;
+          transform: scale(1.1);  /* Slightly enlarge the button on hover */
+        }
+        .about-box {
+        background: #f7f5f2; /* Soft beige background */
+        border: 2px solid #c8b9a6; /* Elegant border color */
+        border-radius: 15px; /* Rounded corners */
+        padding: 20px 30px;
+        margin: 20px auto;
+        max-width: 800px; /* Center and limit the width */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        font-family: 'Georgia', serif; /* Serif font for an elegant look */
+        color: #333; /* Dark text for contrast */
+      }
+      
+      .about-box h2 {
+        font-size: 24px;
+        color: #741414; /* Accent color */
+        margin-bottom: 15px;
+      }
+      
+      .about-box h3 {
+        font-size: 20px;
+        margin-top: 20px;
+        color: #5c4c3c; /* Secondary accent color */
+      }
+      
+      .about-box ul {
+        padding-left: 20px;
+        margin: 10px 0;
+      }
+      
+      .about-box ul li {
+        margin-bottom: 10px;
+      }
+      
+      .about-box p {
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+        </style>
 </head>
 <body>
-  <header>
+<header style="padding: 22px 20px;">
+  <!-- Navigation Bar -->
+  <nav style="display: flex; justify-content: space-between; align-items: center;">
+    
+    <!-- Logo (Fully Left) -->
     <div class="logo">
-      <img src="Group 1.svg" alt="Alexia Logo" style="width: 150px; height: auto;">
+      <img src="Untitled.png" alt="Alexia Logo" style="width: 100px; height: auto;">
     </div>
-    <nav>
+
+    <!-- Centered Navigation Links -->
+    <div style="display: flex; gap: 15px;">
       <a href="index.php">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-      <a href="loginform.php">Kyçu</a>
-    </nav>
-  </header>
+      <a href="about.php">About Us</a>
+      <a href="contact.php">Contact</a>
+    </div>
+
+    <!-- User Section (Fully Right) -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+    </div>
+  </nav>
+
+  <!-- Welcome Message & Quote -->
+  <div style="text-align: center; margin-top: 15px;">
+    <h1 style="color: rgb(0, 0, 0);">Welcome to Alexia</h1>
+    <p style="color: rgb(0, 0, 0);">Perfume is the art that makes memory speak</p>
+  </div>
+</header>
 
   <main>
     <br>
@@ -103,13 +156,16 @@
     <div class="social">
       <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-      <a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i></a>
+      <a href="https://x.com/?lang=en"><i class="fa-brands fa-x-twitter"></i></a>
+
+    
+
     </div>
     <ul class="list">
       <li><a href="index.php">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="loginform.php">Kyçu</a></li>
+      <li><a href="about.php">About Us</a></li>
+      <li><a href="contact.php">Contact</a></li>
+      <li><a href="login.php">Sign in</a></li>
     </ul>
     <p class="copyright">Alexia @2024</p>
   </div>
